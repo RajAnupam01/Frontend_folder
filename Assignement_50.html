@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="errorMessages"></div>
+
+    <script>
+        $(document).ready(function(){
+            $("#myForm").submit(function(event){
+                event.preventDefault();
+                $("#errorMessages").html("");
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var confirmPassword = $("#confirmPassword").val();
+                if (name === '' || email === '' || password === '' || confirmPassword === '') {
+                    $("#errorMessages").append("<p>All fields are required.</p>");
+                    return;
+                }
+                if (!isValidEmail(email)) {
+                    $("#errorMessages").append("<p>Please enter a valid email address.</p>");
+                    return;
+                }
+                if (password !== confirmPassword) {
+                    $("#errorMessages").append("<p>Passwords do not match.</p>");
+                    return;
+                }
+                this.submit();
+            });
+            function isValidEmail(email) {
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+        });
+    </script>
+</body>
+</html>

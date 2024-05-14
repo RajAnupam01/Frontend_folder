@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify CSS with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight {
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Hello, jQuery!</h1>
+    <p class="highlight">This paragraph will be highlighted.</p>
+    <p>This paragraph will not be highlighted.</p>
+    <script>
+        $(document).ready(function(){
+            $("#title").css("color", "red"); 
+            $(".highlight").css({
+                "color": "green",    
+                "font-size": "24px"
+            });
+        });
+    </script>
+</body>
+</html>

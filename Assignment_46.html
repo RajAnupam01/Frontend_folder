@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Animations with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">This is a box</div>
+    <button id="hideBtn">Hide</button>
+    <button id="showBtn">Show</button>
+    <button id="fadeInBtn">Fade In</button>
+    <button id="fadeOutBtn">Fade Out</button>
+    <script>
+        $(document).on("click", "#hideBtn", function(){
+            $("#box").hide(); 
+        });
+        $(document).on("click", "#showBtn", function(){
+            $("#box").show(); 
+        });
+        $(document).on("click", "#fadeInBtn", function(){
+            $("#box").fadeIn(); 
+        });
+        $(document).on("click", "#fadeOutBtn", function(){
+            $("#box").fadeOut(); 
+        });
+    </script>
+</body>
+</html>

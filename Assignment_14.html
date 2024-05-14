@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS List Properties</title>
+<style>
+  ul {
+    list-style-type: circle;
+    margin-left: 30px;
+    padding-left: 20px;
+    counter-reset: item;
+  }
+  li {
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  li:before {
+    content: counter(item) ".";
+    counter-increment: item;
+    position: absolute;
+    left: -20px;
+  }
+  ol {
+    list-style-type: decimal;
+    margin-left: 30px;
+    padding-left: 20px;
+  }
+  dl {
+    margin-left: 30px;
+  }
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<h2>Unordered List</h2>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2
+    <ul>
+      <li>Nested Item 1</li>
+      <li>Nested Item 2</li>
+    </ul>
+  </li>
+  <li>Item 3</li>
+</ul>
+
+<h2>Ordered List</h2>
+<ol>
+  <li>Item 1</li>
+  <li>Item 2
+    <ol>
+      <li>Nested Item 1</li>
+      <li>Nested Item 2</li>
+    </ol>
+  </li>
+  <li>Item 3</li>
+</ol>
+
+<h2>Definition List</h2>
+<dl>
+  <dt>Term 1</dt>
+  <dd>Definition 1</dd>
+  <dt>Term 2</dt>
+  <dd>Definition 2</dd>
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+<body>
+    <div id="target">
+        <button id="clickBtn">Click Me</button>
+        <input type="text" id="textInput" placeholder="Type something...">
+        <select id="selectOption">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>
+    </div>
+    <script>
+
+        document.getElementById("clickBtn").addEventListener("click", function() {
+            console.log("Button clicked!");
+        });
+
+
+        document.getElementById("target").addEventListener("mouseover", function() {
+            console.log("Mouse over target div.");
+        });
+
+
+        document.getElementById("target").addEventListener("mouseout", function() {
+            console.log("Mouse out of target div.");
+        });
+
+        document.getElementById("textInput").addEventListener("keydown", function(event) {
+            console.log("Key pressed: " + event.key);
+        });
+
+        document.getElementById("selectOption").addEventListener("change", function() {
+            console.log("Selected option: " + this.value);
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Detection</title>
+</head>
+<body>
+    <script>
+        var browserName = navigator.appName;
+        var browserVersion = navigator.appVersion;
+
+        var platform = navigator.platform;
+
+        var screenWidth = window.screen.width;
+        var screenHeight = window.screen.height;
+        
+        console.log("Browser Name: " + browserName);
+        console.log("Browser Version: " + browserVersion);
+        console.log("Platform: " + platform);
+        console.log("Screen Resolution: " + screenWidth + "x" + screenHeight);
+    </script>
+</body>
+</html>

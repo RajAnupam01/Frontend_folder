@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Form Element</title>
+</head>
+<body>
+<form id="myForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <button type="button" onclick="accessFormElement()">Access Form Element</button>
+</form>
+<script>
+function accessFormElement() {
+
+    var form = document.getElementById("myForm");
+    var usernameInput = form.elements["username"];
+    var usernameValue = usernameInput.value;
+    alert("The username entered is: " + usernameValue);
+}
+</script>
+</body>
+</html>

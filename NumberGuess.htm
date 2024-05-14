@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(3, 5, 77);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .container {
+            background-color: black;
+            width: 700px;
+            height: 300px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 5px solid white;
+        }
+
+        #input {
+            width: 200px;
+            height: 30px;
+            border: none;
+            outline: none;
+            padding: 5px;
+        }
+
+        #btn {
+            width: 100px;
+            height: 30px
+        }
+
+        .box {
+            margin: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        h3 {
+            margin: 20px;
+        }
+
+        h1 {
+            position: absolute;
+            top: 50px;
+            left: 40%;
+            color: white;
+        }
+        h4{
+            color: white;
+        }
+        #inpt:focus{
+          outline: none;
+          padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Number Guessing</h1>
+    <div class="container">
+        <h2>Guess a number between 1-10</h2>
+        <h3>Enter a number below</h3>
+        <div class="box">
+            <input type="text" id="inpt">
+            <button id="btn">Enter</button>
+        </div>
+        <h4></h4>
+
+    </div>
+    <script>
+        let button = document.querySelector("#btn");
+        let inputfield = document.querySelector("#inpt");
+        let text = document.querySelector("h4");
+
+        button.addEventListener('click',function(){
+            let myrandom = Math.floor(Math.random()*10);
+
+            let myinput = inputfield.value.trim();
+
+            let isdigit = /^[0-9]+$/;
+
+            if(!isdigit.test(myinput)){
+                text.innerHTML="Please enter a valid Number";
+            }
+            else{
+                myinput = parseInt(myinput);
+                if(myinput<0 || myinput>10){
+                    text.innerHTML="Please enter Number between 1 - 10";
+                }
+                else if(myinput === myrandom){
+                    text.innerHTML="You won the game.";
+                }
+                else{
+                    text.innerHTML=`You lost the game. The correct answer is ${myrandom}`;
+                }
+            }
+        })
+        inputfield.addEventListener('focus',function(){
+            text.innerHTML ="";
+            inputfield.value ="";
+        })
+    </script>
+</body>
+
+</html>
